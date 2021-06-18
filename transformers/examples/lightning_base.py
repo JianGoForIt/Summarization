@@ -111,6 +111,7 @@ class PrefixTransformer(pl.LightningModule):
         self.step_count = 0
         self.output_dir = Path(self.hparams.output_dir)
         cache_dir = self.hparams.cache_dir if self.hparams.cache_dir else None
+        cache_dir = './cache'
         print('the cache dir is {}'.format(cache_dir))
         if config is None:
             self.config = AutoConfig.from_pretrained(
