@@ -7,10 +7,14 @@ dataset = load_dataset('xsum', cache_dir='./xsum')
 def write_file(dataset, output_dir, file_name):
     with open(output_dir + "/" + file_name + '.source', 'w') as f:
         for x in dataset:
+            if len(x['document']) == 0 or len(x['summary']) == 0:
+               continue
             f.write(x['document'].replace('\n', ' ') + '\n')
 
     with open(output_dir + '/' + file_name + '.target', 'w') as f:
         for x in dataset:
+            if len(x['document']) == 0 or len(x['summary']) == 0:
+               continue
             f.write(x['summary'].replace('\n', ' ') + '\n')
 
 
