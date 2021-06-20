@@ -892,6 +892,6 @@ if __name__ == "__main__":
         else:
             args.prefixModel_name_or_path = os.path.join(args.output_dir,'checkpoint-curr_best')
             args.eval_batch_size = 10
-        args.data_dir = 'lowdata_xsum/xsum_small_test'
+        args.data_dir = 'xsum/raw_text'
         args.do_train = False
         eval(args)

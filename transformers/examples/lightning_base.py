@@ -82,10 +82,10 @@ class OurModelCheckPoint(pl.callbacks.ModelCheckpoint):
         10/0
         return
 
-    def _save_model(self, filepath: str, trainer, pl_module):
+    def _save_model(self, filepath: str):
         print('saving models now/..')
         print('try calling the pl_module save')
-        pl_module.on_save_checkpoint(None, filepath)
+        self.pl_module.on_save_checkpoint(None, filepath)
         return
 
 
@@ -761,6 +761,8 @@ def generic_train(
     # checkpoint_callback = OurModelCheckPoint(filepath=args.output_dir, prefix="checkpoint", monitor="val_loss", mode="min", save_top_k=1)
     # monitor_var = args.monitor_var
     checkpoint_callback = OurModelCheckPoint(filepath=args.output_dir, prefix="checkpoint", monitor="val_rouge2", mode="max", save_top_k=1)
+    # JZ hook the model to the call back so that we do not need to customize the install pytorch lightning
+    checkpoint_callback.pl_module = model
 
     # checkpoint_callback = OurModelCheckPoint(
     #     filepath=os.path.join(args.output_dir, exp),
