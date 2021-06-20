@@ -1,7 +1,7 @@
 #conda env create -f environment.yml
 #conda activate prefix-tuning
 
-pushd transformer
+pushd transformers
 pip install -e .
 popd
 
