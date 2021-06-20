@@ -62,3 +62,9 @@ For details of the methods and results, please refer to our paper.
       primaryClass={cs.CL}
 }
 ```
+# Local setup
+```
+conda env create -f environment.yml (fine if it failed in the middle)
+conda activate prefix-tuning
+bash setup.sh
+```
