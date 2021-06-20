@@ -1,5 +1,5 @@
-conda env create -f environment.yml
-conda activate prefix-tuning
+#conda env create -f environment.yml
+#conda activate prefix-tuning
 
 pushd transformer
 pip install -e .
@@ -18,7 +18,7 @@ pip install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp
 popd
 popd
 
-pushd transformer/examples/seq2seq
-mkdir ./xsum/raw_text
+pushd transformers/examples/seq2seq
+mkdir -p ./xsum/raw_text
 python generate_xsum_files.py
 popd
